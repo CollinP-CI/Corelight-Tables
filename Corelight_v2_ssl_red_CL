@@ -1,0 +1,23 @@
+$tableParams = @'
+{
+  "properties": {
+  "schema": {
+  "name": "Corelight_v2_ssl_red_CL",
+  "columns": [
+    { "name": "TimeGenerated", "type": "datetime" },
+    { "name": "SourceIP", "type": "string" },
+    { "name": "DestinationIP", "type": "string" },
+    { "name": "SourcePort", "type": "int" },
+    { "name": "DestinationPort", "type": "int" },
+    { "name": "SSLVersion", "type": "string" },
+    { "name": "CipherSuite", "type": "string" },
+    { "name": "CertIssuer", "type": "string" },
+    { "name": "CertExpiry", "type": "datetime" },
+    { "name": "AnomalyDetected", "type": "string" },
+    { "name": "ThreatScore", "type": "int" }
+  ]
+},
+    "plan": "Analytics"
+}
+'@
+Invoke-AzRestMethod -Path "/subscriptions/6a8cbfca-fb3f-42a3-bff4-2d7cfa2c422f/resourceGroups/SentinelTesting_RG/providers/Microsoft.OperationalInsights/workspaces/EndUsersPreprod-Sentinel-LogAnalyticsWorkspace/tables/Corelight_v2_ssl_red_CL?api-version=2021-12-01-preview" -Method PUT -Payload $tableParams
