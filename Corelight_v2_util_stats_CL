@@ -6,10 +6,10 @@ $tableParams = @'
   "columns": [
     { "name": "TimeGenerated", "type": "datetime" },
     { "name": "NodeName", "type": "string" },
-    { "name": "CPUUsagePercent", "type": "float" },
-    { "name": "MemoryUsagePercent", "type": "float" },
-    { "name": "DiskUsagePercent", "type": "float" },
-    { "name": "NetworkUtilizationPercent", "type": "float" },
+    { "name": "CPUUsagePercent", "type": "real" },
+    { "name": "MemoryUsagePercent", "type": "real" },
+    { "name": "DiskUsagePercent", "type": "real" },
+    { "name": "NetworkUtilizationPercent", "type": "real" },
     { "name": "DroppedPackets", "type": "int" },
     { "name": "ProcessedEvents", "type": "int" }
   ]
