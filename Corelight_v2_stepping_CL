@@ -5,13 +5,14 @@ $tableParams = @'
   "name": "Corelight_v2_stepping_CL",
   "columns": [
     { "name": "TimeGenerated", "type": "datetime" },
-    { "name": "InitialSourceIP", "type": "string" },
-    { "name": "IntermediateHostIP", "type": "string" },
-    { "name": "FinalDestinationIP", "type": "string" },
+    { "name": "SourceIP", "type": "string" },
+    { "name": "IntermediateIP", "type": "string" },
+    { "name": "DestinationIP", "type": "string" },
     { "name": "Protocol", "type": "string" },
-    { "name": "ConnectionDuration", "type": "int" },
-    { "name": "BytesTransferred", "type": "int" },
-    { "name": "SuspiciousScore", "type": "double" }
+    { "name": "SessionDuration", "type": "int" },
+    { "name": "StepCount", "type": "int" },
+    { "name": "AlertFlag", "type": "bool" },
+    { "name": "MaliciousConfidenceScore", "type": "int" }
   ]
 },
     "plan": "Analytics"
