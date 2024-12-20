@@ -1,0 +1,20 @@
+$tableParams = @'
+{
+  "properties": {
+  "schema": {
+  "name": "Corelight_v2_traceroute_CL",
+  "columns": [
+    { "name": "TimeGenerated", "type": "datetime" },
+    { "name": "SourceIP", "type": "string" },
+    { "name": "DestinationIP", "type": "string" },
+    { "name": "HopCount", "type": "int" },
+    { "name": "Latency", "type": "int" },
+    { "name": "Path", "type": "string" },
+    { "name": "Protocol", "type": "string" },
+    { "name": "PacketSize", "type": "int" }
+  ]
+},
+    "plan": "Analytics"
+}
+'@
+Invoke-AzRestMethod -Path "/subscriptions/6a8cbfca-fb3f-42a3-bff4-2d7cfa2c422f/resourceGroups/SentinelTesting_RG/providers/Microsoft.OperationalInsights/workspaces/EndUsersPreprod-Sentinel-LogAnalyticsWorkspace/tables/Corelight_v2_traceroute_CL?api-version=2021-12-01-preview" -Method PUT -Payload $tableParams
