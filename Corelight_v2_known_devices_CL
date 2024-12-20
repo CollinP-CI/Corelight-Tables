@@ -1,0 +1,24 @@
+$tableParams = @'
+{
+  "properties": {
+  "schema": {
+  "name": "Corelight_v2_known_devices_CL",
+  "columns": [
+        { "name": "TimeGenerated", "type": "datetime" },
+        { "name": "DeviceID", "type": "string" },
+        { "name": "DeviceName", "type": "string" },
+        { "name": "DeviceType", "type": "string" },
+        { "name": "IPAddress", "type": "string" },
+        { "name": "MACAddress", "type": "string" },
+        { "name": "OS", "type": "string" },
+        { "name": "LastSeen", "type": "datetime" },
+        { "name": "FirstSeen", "type": "datetime" },
+        { "name": "Manufacturer", "type": "string" },
+        { "name": "ConnectionCount", "type": "int" },
+        { "name": "AnomalyScore", "type": "real" }
+  ]
+},
+    "plan": "Analytics"
+}
+'@
+Invoke-AzRestMethod -Path "/subscriptions/6a8cbfca-fb3f-42a3-bff4-2d7cfa2c422f/resourceGroups/SentinelTesting_RG/providers/Microsoft.OperationalInsights/workspaces/EndUsersPreprod-Sentinel-LogAnalyticsWorkspace/tables/Corelight_v2_known_devices_CL?api-version=2021-12-01-preview" -Method PUT -Payload $tableParams
