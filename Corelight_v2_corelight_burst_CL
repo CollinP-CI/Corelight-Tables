@@ -1,0 +1,21 @@
+$tableParams = @'
+{
+  "properties": {
+  "schema": {
+  "name": "Corelight_v2_corelight_burst_CL",
+  "columns": [
+        { "name": "TimeGenerated", "type": "datetime" },
+        { "name": "NodeName", "type": "string" },
+        { "name": "BurstStartTime", "type": "datetime" },
+        { "name": "BurstEndTime", "type": "datetime" },
+        { "name": "BurstPacketCount", "type": "int" },
+        { "name": "BurstByteCount", "type": "int" },
+        { "name": "MaxPacketRate", "type": "real" },
+        { "name": "AveragePacketRate", "type": "real" },
+        { "name": "Protocol", "type": "string" }
+  ]
+},
+    "plan": "Analytics"
+}
+'@
+Invoke-AzRestMethod -Path "/subscriptions/6a8cbfca-fb3f-42a3-bff4-2d7cfa2c422f/resourceGroups/SentinelTesting_RG/providers/Microsoft.OperationalInsights/workspaces/EndUsersPreprod-Sentinel-LogAnalyticsWorkspace/tables/Corelight_v2_corelight_burst_CL?api-version=2021-12-01-preview" -Method PUT -Payload $tableParams
