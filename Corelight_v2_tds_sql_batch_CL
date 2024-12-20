@@ -1,0 +1,22 @@
+$tableParams = @'
+{
+  "properties": {
+  "schema": {
+  "name": "Corelight_v2_tds_sql_batch_CL",
+  "columns": [
+    { "name": "TimeGenerated", "type": "datetime" },
+    { "name": "SourceIP", "type": "string" },
+    { "name": "DestinationIP", "type": "string" },
+    { "name": "SourcePort", "type": "int" },
+    { "name": "DestinationPort", "type": "int" },
+    { "name": "Query", "type": "string" },
+    { "name": "ExecutionTime", "type": "int" },
+    { "name": "RowsAffected", "type": "int" },
+    { "name": "BytesTransferred", "type": "int" },
+    { "name": "StatusCode", "type": "int" }
+  ]
+},
+    "plan": "Analytics"
+}
+'@
+Invoke-AzRestMethod -Path "/subscriptions/6a8cbfca-fb3f-42a3-bff4-2d7cfa2c422f/resourceGroups/SentinelTesting_RG/providers/Microsoft.OperationalInsights/workspaces/EndUsersPreprod-Sentinel-LogAnalyticsWorkspace/tables/Corelight_v2_tds_sql_batch_CL?api-version=2021-12-01-preview" -Method PUT -Payload $tableParams
