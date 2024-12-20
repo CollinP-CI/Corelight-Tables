@@ -1,0 +1,20 @@
+$tableParams = @'
+{
+  "properties": {
+  "schema": {
+  "name": "Corelight_v2_corelight_profiling_CL",
+  "columns": [
+        { "name": "TimeGenerated", "type": "datetime" },
+        { "name": "NodeName", "type": "string" },
+        { "name": "ProfileID", "type": "string" },
+        { "name": "ProfileName", "type": "string" },
+        { "name": "Duration", "type": "real" },
+        { "name": "StartTime", "type": "datetime" },
+        { "name": "EndTime", "type": "datetime" },
+        { "name": "NetworkUtilization", "type": "real" }
+  ]
+},
+    "plan": "Analytics"
+}
+'@
+Invoke-AzRestMethod -Path "/subscriptions/6a8cbfca-fb3f-42a3-bff4-2d7cfa2c422f/resourceGroups/SentinelTesting_RG/providers/Microsoft.OperationalInsights/workspaces/EndUsersPreprod-Sentinel-LogAnalyticsWorkspace/tables/Corelight_v2_corelight_profiling_CL?api-version=2021-12-01-preview" -Method PUT -Payload $tableParams
