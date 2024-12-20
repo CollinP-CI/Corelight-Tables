@@ -5,13 +5,13 @@ $tableParams = @'
   "name": "Corelight_v2_stats_CL",
   "columns": [
     { "name": "TimeGenerated", "type": "datetime" },
-    { "name": "CPUUsage", "type": "double" },
-    { "name": "MemoryUsage", "type": "double" },
-    { "name": "PacketLoss", "type": "double" },
-    { "name": "PacketsProcessed", "type": "int" },
-    { "name": "ConnectionsTracked", "type": "int" },
-    { "name": "HostName", "type": "string" },
-    { "name": "CorelightVersion", "type": "string" }
+    { "name": "SourceIP", "type": "string" },
+    { "name": "DestinationIP", "type": "string" },
+    { "name": "Protocol", "type": "string" },
+    { "name": "TotalBytesTransferred", "type": "int" },
+    { "name": "PacketsTransferred", "type": "int" },
+    { "name": "SessionDuration", "type": "int" },
+    { "name": "EventCount", "type": "int" }
   ]
 },
     "plan": "Analytics"
