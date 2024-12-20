@@ -1,0 +1,21 @@
+$tableParams = @'
+{
+  "properties": {
+  "schema": {
+  "name": "Corelight_v2_stun_CL",
+  "columns": [
+    { "name": "TimeGenerated", "type": "datetime" },
+    { "name": "SourceIP", "type": "string" },
+    { "name": "DestinationIP", "type": "string" },
+    { "name": "SourcePort", "type": "int" },
+    { "name": "DestinationPort", "type": "int" },
+    { "name": "Protocol", "type": "string" },
+    { "name": "STUNType", "type": "string" },
+    { "name": "ResponseCode", "type": "int" },
+    { "name": "MappedAddress", "type": "string" }
+  ]
+},
+    "plan": "Analytics"
+}
+'@
+Invoke-AzRestMethod -Path "/subscriptions/6a8cbfca-fb3f-42a3-bff4-2d7cfa2c422f/resourceGroups/SentinelTesting_RG/providers/Microsoft.OperationalInsights/workspaces/EndUsersPreprod-Sentinel-LogAnalyticsWorkspace/tables/Corelight_v2_stun_CL?api-version=2021-12-01-preview" -Method PUT -Payload $tableParams
