@@ -1,0 +1,20 @@
+$tableParams = @'
+{
+  "properties": {
+  "schema": {
+  "name": "Corelight_v2_etc_viz_CL",
+  "columns": [
+        { "name": "TimeGenerated", "type": "datetime" },
+        { "name": "SourceIP", "type": "string" },
+        { "name": "DestinationIP", "type": "string" },
+        { "name": "EventType", "type": "string" },
+        { "name": "VisualizationID", "type": "string" },
+        { "name": "DataSize", "type": "real" },
+        { "name": "Duration", "type": "real" },
+        { "name": "Tags", "type": "string" }
+  ]
+},
+    "plan": "Analytics"
+}
+'@
+Invoke-AzRestMethod -Path "/subscriptions/2eff1c6d-f789-4be8-ab50-33d5b116d7a5/resourceGroups/sentinel_operations/providers/Microsoft.OperationalInsights/workspaces/SENTINEL-Equitable-LogAnalyticsWorkspace/tables/Corelight_v2_etc_viz_CL?api-version=2021-12-01-preview" -Method PUT -Payload $tableParams
