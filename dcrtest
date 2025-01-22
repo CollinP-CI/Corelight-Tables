@@ -1697,7 +1697,7 @@
                     "logAnalytics": [
                         {
                             "workspaceResourceId": "[parameters('workspaces_sentineltesting_rg_externalid')]",
-                            "name": "sentineltesting_rg"
+                            "name": "SentinelTesting_RG"
                         }
                     ]
                 },
@@ -1707,7 +1707,7 @@
                             "Custom-Corelight_CL"
                         ],
                         "destinations": [
-                            "sentineltesting_rg"
+                            "SentinelTesting_RG"
                         ],
                         "transformKql": "source | extend Duration = toint(Duration)"
                     },
@@ -1716,7 +1716,7 @@
                             "Custom-Corelight_v2_conn_red_CL"
                         ],
                         "destinations": [
-                            "sentineltesting_rg"
+                            "SentinelTesting_RG"
                         ],
                         "transformKql": "source"
                     },
@@ -1725,7 +1725,7 @@
                             "Custom-Corelight_v2_conn_CL"
                         ],
                         "destinations": [
-                            "sentineltesting_rg"
+                            "SentinelTesting_RG"
                         ],
                         "transformKql": "source | extend Duration = toint(Duration)"
                     },
@@ -1734,7 +1734,7 @@
                             "Custom-Corelight_v2_conn_long_CL"
                         ],
                         "destinations": [
-                            "sentineltesting_rg"
+                            "SentinelTesting_RG"
                         ],
                         "transformKql": "source | extend Duration = toint(Duration)"
                     },
@@ -1743,7 +1743,7 @@
                             "Custom-Corelight_v2_dns_CL"
                         ],
                         "destinations": [
-                            "sentineltesting_rg"
+                            "SentinelTesting_RG"
                         ],
                         "transformKql": "source"
                     },
@@ -1752,7 +1752,7 @@
                             "Custom-Corelight_v2_dns_red_CL"
                         ],
                         "destinations": [
-                            "sentineltesting_rg"
+                            "SentinelTesting_RG"
                         ],
                         "transformKql": "source"
                     },
@@ -1761,7 +1761,7 @@
                             "Custom-Corelight_v2_ssl_CL"
                         ],
                         "destinations": [
-                            "sentineltesting_rg"
+                            "SentinelTesting_RG"
                         ],
                         "transformKql": "source"
                     },
@@ -1770,7 +1770,7 @@
                             "Custom-Corelight_v2_ssl_red_CL"
                         ],
                         "destinations": [
-                            "sentineltesting_rg"
+                            "SentinelTesting_RG"
                         ],
                         "transformKql": "source"
                     },
@@ -1779,7 +1779,7 @@
                             "Custom-Corelight_v2_http_CL"
                         ],
                         "destinations": [
-                            "sentineltesting_rg"
+                            "SentinelTesting_RG"
                         ],
                         "transformKql": "source"
                     },
@@ -1788,7 +1788,7 @@
                             "Custom-Corelight_v2_http2_CL"
                         ],
                         "destinations": [
-                            "sentineltesting_rg"
+                            "SentinelTesting_RG"
                         ],
                         "transformKql": "source"
                     }
