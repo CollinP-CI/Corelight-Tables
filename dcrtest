@@ -1,0 +1,1799 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "dataCollectionRules_dcr-corelight-limitedtest_name": {
+            "defaultValue": "dcr-corelight-limitedtest",
+            "type": "string"
+        },
+        "dataCollectionEndpoints_Cribl_Stream_Ingestion_externalid": {
+            "defaultValue": "/subscriptions/6a8cbfca-fb3f-42a3-bff4-2d7cfa2c422f/resourceGroups/SentinelTesting_RG/providers/Microsoft.Insights/dataCollectionEndpoints/Cribl-Stream-Ingestion",
+            "type": "string"
+        },
+        "EndUsersPreprod-Sentinel-LogAnalyticsWorkspace": {
+            "defaultValue": "/subscriptions/6a8cbfca-fb3f-42a3-bff4-2d7cfa2c422f/resourcegroups/sentineltesting_rg/providers/microsoft.operationalinsights/workspaces/enduserspreprod-sentinel-loganalyticsworkspace",
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Insights/dataCollectionRules",
+            "apiVersion": "2023-03-11",
+            "name": "[parameters('dataCollectionRules_dcr-corelight-limitedtest_name')]",
+            "location": "eastus",
+            "properties": {
+                "dataCollectionEndpointId": "[parameters('dataCollectionEndpoints_Cribl_Stream_Ingestion_externalid')]",
+                "streamDeclarations": {
+                    "Custom-Corelight_CL": {
+                        "columns": [
+                            {
+                                "name": "TimeGenerated",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "SourceIP",
+                                "type": "string"
+                            },
+                            {
+                                "name": "DestinationIP",
+                                "type": "string"
+                            },
+                            {
+                                "name": "Protocol",
+                                "type": "string"
+                            },
+                            {
+                                "name": "BytesTransferred",
+                                "type": "int"
+                            },
+                            {
+                                "name": "Duration",
+                                "type": "int"
+                            },
+                            {
+                                "name": "EventType",
+                                "type": "string"
+                            },
+                            {
+                                "name": "HostName",
+                                "type": "string"
+                            },
+                            {
+                                "name": "CorelightVersion",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    "Custom-Corelight_v2_conn_red_CL": {
+                        "columns": [
+                            {
+                                "name": "TimeGenerated",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "path",
+                                "type": "string"
+                            },
+                            {
+                                "name": "system_name",
+                                "type": "string"
+                            },
+                            {
+                                "name": "write_ts",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "uid",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_orig_h",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_orig_p",
+                                "type": "long"
+                            },
+                            {
+                                "name": "id_resp_h",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_resp_p",
+                                "type": "long"
+                            },
+                            {
+                                "name": "proto",
+                                "type": "string"
+                            },
+                            {
+                                "name": "service",
+                                "type": "string"
+                            },
+                            {
+                                "name": "duration",
+                                "type": "real"
+                            },
+                            {
+                                "name": "orig_bytes",
+                                "type": "real"
+                            },
+                            {
+                                "name": "resp_bytes",
+                                "type": "real"
+                            },
+                            {
+                                "name": "conn_state",
+                                "type": "string"
+                            },
+                            {
+                                "name": "local_orig",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "local_resp",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "missed_bytes",
+                                "type": "real"
+                            },
+                            {
+                                "name": "history",
+                                "type": "string"
+                            },
+                            {
+                                "name": "orig_pkts",
+                                "type": "real"
+                            },
+                            {
+                                "name": "orig_ip_bytes",
+                                "type": "real"
+                            },
+                            {
+                                "name": "resp_pkts",
+                                "type": "real"
+                            },
+                            {
+                                "name": "resp_ip_bytes",
+                                "type": "real"
+                            },
+                            {
+                                "name": "tunnel_parents",
+                                "type": "string"
+                            },
+                            {
+                                "name": "orig_cc",
+                                "type": "string"
+                            },
+                            {
+                                "name": "resp_cc",
+                                "type": "string"
+                            },
+                            {
+                                "name": "suri_ids",
+                                "type": "string"
+                            },
+                            {
+                                "name": "spcap_url",
+                                "type": "string"
+                            },
+                            {
+                                "name": "spcap_rule",
+                                "type": "real"
+                            },
+                            {
+                                "name": "spcap_trigger",
+                                "type": "string"
+                            },
+                            {
+                                "name": "app",
+                                "type": "string"
+                            },
+                            {
+                                "name": "corelight_shunted",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "orig_shunted_pkts",
+                                "type": "real"
+                            },
+                            {
+                                "name": "orig_shunted_bytes",
+                                "type": "real"
+                            },
+                            {
+                                "name": "resp_shunted_pkts",
+                                "type": "real"
+                            },
+                            {
+                                "name": "resp_shunted_bytes",
+                                "type": "real"
+                            },
+                            {
+                                "name": "orig_l2_addr",
+                                "type": "string"
+                            },
+                            {
+                                "name": "resp_l2_addr",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_orig_h_n_src",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_orig_h_n_vals",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_resp_h_n_src",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_resp_h_n_vals",
+                                "type": "string"
+                            },
+                            {
+                                "name": "vlan",
+                                "type": "real"
+                            },
+                            {
+                                "name": "inner_vlan",
+                                "type": "real"
+                            },
+                            {
+                                "name": "community_id",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    "Custom-Corelight_v2_conn_CL": {
+                        "columns": [
+                            {
+                                "name": "path",
+                                "type": "string"
+                            },
+                            {
+                                "name": "system_name",
+                                "type": "string"
+                            },
+                            {
+                                "name": "write_ts",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "uid",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_orig_h",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_orig_p",
+                                "type": "int"
+                            },
+                            {
+                                "name": "id_resp_h",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_resp_p",
+                                "type": "int"
+                            },
+                            {
+                                "name": "proto",
+                                "type": "string"
+                            },
+                            {
+                                "name": "service",
+                                "type": "string"
+                            },
+                            {
+                                "name": "duration",
+                                "type": "real"
+                            },
+                            {
+                                "name": "orig_bytes",
+                                "type": "int"
+                            },
+                            {
+                                "name": "resp_bytes",
+                                "type": "int"
+                            },
+                            {
+                                "name": "conn_state",
+                                "type": "string"
+                            },
+                            {
+                                "name": "local_orig",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "local_resp",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "missed_bytes",
+                                "type": "int"
+                            },
+                            {
+                                "name": "history",
+                                "type": "string"
+                            },
+                            {
+                                "name": "orig_pkts",
+                                "type": "int"
+                            },
+                            {
+                                "name": "orig_ip_bytes",
+                                "type": "int"
+                            },
+                            {
+                                "name": "resp_pkts",
+                                "type": "int"
+                            },
+                            {
+                                "name": "resp_ip_bytes",
+                                "type": "int"
+                            },
+                            {
+                                "name": "tunnel_parents",
+                                "type": "string"
+                            },
+                            {
+                                "name": "orig_cc",
+                                "type": "string"
+                            },
+                            {
+                                "name": "resp_cc",
+                                "type": "string"
+                            },
+                            {
+                                "name": "suri_ids",
+                                "type": "string"
+                            },
+                            {
+                                "name": "spcap_url",
+                                "type": "string"
+                            },
+                            {
+                                "name": "spcap_rule",
+                                "type": "string"
+                            },
+                            {
+                                "name": "spcap_trigger",
+                                "type": "string"
+                            },
+                            {
+                                "name": "apps",
+                                "type": "string"
+                            },
+                            {
+                                "name": "corelight_shunted",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "orig_shunted_pkts",
+                                "type": "int"
+                            },
+                            {
+                                "name": "orig_shunted_bytes",
+                                "type": "int"
+                            },
+                            {
+                                "name": "resp_shunted_pkts",
+                                "type": "int"
+                            },
+                            {
+                                "name": "resp_shunted_bytes",
+                                "type": "int"
+                            },
+                            {
+                                "name": "orig_l2_addr",
+                                "type": "string"
+                            },
+                            {
+                                "name": "resp_l2_addr",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_orig_h_n_src",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_orig_h_n_vals",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_resp_h_n_src",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_resp_h_n_vals",
+                                "type": "string"
+                            },
+                            {
+                                "name": "vlan",
+                                "type": "int"
+                            },
+                            {
+                                "name": "inner_vlan",
+                                "type": "int"
+                            },
+                            {
+                                "name": "community_id",
+                                "type": "string"
+                            },
+                            {
+                                "name": "pcr",
+                                "type": "string"
+                            },
+                            {
+                                "name": "EventVendor",
+                                "type": "string"
+                            },
+                            {
+                                "name": "EventProduct",
+                                "type": "string"
+                            },
+                            {
+                                "name": "EventType",
+                                "type": "string"
+                            },
+                            {
+                                "name": "ts",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "src",
+                                "type": "string"
+                            },
+                            {
+                                "name": "src_ip",
+                                "type": "string"
+                            },
+                            {
+                                "name": "src_port",
+                                "type": "int"
+                            },
+                            {
+                                "name": "dest",
+                                "type": "string"
+                            },
+                            {
+                                "name": "dest_ip",
+                                "type": "string"
+                            },
+                            {
+                                "name": "dest_port",
+                                "type": "int"
+                            },
+                            {
+                                "name": "bytes_out",
+                                "type": "int"
+                            },
+                            {
+                                "name": "src_mac",
+                                "type": "string"
+                            },
+                            {
+                                "name": "dvc",
+                                "type": "string"
+                            },
+                            {
+                                "name": "packets_out",
+                                "type": "int"
+                            },
+                            {
+                                "name": "bytes_in",
+                                "type": "int"
+                            },
+                            {
+                                "name": "dest_mac",
+                                "type": "string"
+                            },
+                            {
+                                "name": "dst_mac",
+                                "type": "string"
+                            },
+                            {
+                                "name": "packets_in",
+                                "type": "int"
+                            },
+                            {
+                                "name": "session_id",
+                                "type": "string"
+                            },
+                            {
+                                "name": "src_country",
+                                "type": "string"
+                            },
+                            {
+                                "name": "dest_country",
+                                "type": "string"
+                            },
+                            {
+                                "name": "bytes",
+                                "type": "int"
+                            },
+                            {
+                                "name": "sensor_name",
+                                "type": "string"
+                            },
+                            {
+                                "name": "is_broadcast",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "is_src_internal_ip",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "is_dest_internal_ip",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "direction",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_vlan",
+                                "type": "string"
+                            },
+                            {
+                                "name": "packets",
+                                "type": "int"
+                            },
+                            {
+                                "name": "transport",
+                                "type": "string"
+                            },
+                            {
+                                "name": "app",
+                                "type": "string"
+                            },
+                            {
+                                "name": "conn_state_desc",
+                                "type": "string"
+                            },
+                            {
+                                "name": "action",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    "Custom-Corelight_v2_conn_long_CL": {
+                        "columns": [
+                            {
+                                "name": "TimeGenerated",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "path",
+                                "type": "string"
+                            },
+                            {
+                                "name": "system_name",
+                                "type": "string"
+                            },
+                            {
+                                "name": "write_ts",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "uid",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_orig_h",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_orig_p",
+                                "type": "int"
+                            },
+                            {
+                                "name": "id_resp_h",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_resp_p",
+                                "type": "int"
+                            },
+                            {
+                                "name": "proto",
+                                "type": "string"
+                            },
+                            {
+                                "name": "service",
+                                "type": "string"
+                            },
+                            {
+                                "name": "duration",
+                                "type": "real"
+                            },
+                            {
+                                "name": "orig_bytes",
+                                "type": "int"
+                            },
+                            {
+                                "name": "resp_bytes",
+                                "type": "int"
+                            },
+                            {
+                                "name": "conn_state",
+                                "type": "string"
+                            },
+                            {
+                                "name": "local_orig",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "local_resp",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "missed_bytes",
+                                "type": "int"
+                            },
+                            {
+                                "name": "history",
+                                "type": "string"
+                            },
+                            {
+                                "name": "orig_pkts",
+                                "type": "int"
+                            },
+                            {
+                                "name": "orig_ip_bytes",
+                                "type": "int"
+                            },
+                            {
+                                "name": "resp_pkts",
+                                "type": "int"
+                            },
+                            {
+                                "name": "resp_ip_bytes",
+                                "type": "int"
+                            },
+                            {
+                                "name": "tunnel_parents",
+                                "type": "string"
+                            },
+                            {
+                                "name": "orig_cc",
+                                "type": "string"
+                            },
+                            {
+                                "name": "resp_cc",
+                                "type": "string"
+                            },
+                            {
+                                "name": "suri_ids",
+                                "type": "string"
+                            },
+                            {
+                                "name": "spcap_url",
+                                "type": "string"
+                            },
+                            {
+                                "name": "spcap_rule",
+                                "type": "int"
+                            },
+                            {
+                                "name": "spcap_trigger",
+                                "type": "string"
+                            },
+                            {
+                                "name": "app",
+                                "type": "string"
+                            },
+                            {
+                                "name": "corelight_shunted",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "orig_shunted_pkts",
+                                "type": "int"
+                            },
+                            {
+                                "name": "orig_shunted_bytes",
+                                "type": "int"
+                            },
+                            {
+                                "name": "resp_shunted_pkts",
+                                "type": "int"
+                            },
+                            {
+                                "name": "resp_shunted_bytes",
+                                "type": "int"
+                            },
+                            {
+                                "name": "orig_l2_addr",
+                                "type": "string"
+                            },
+                            {
+                                "name": "resp_l2_addr",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_orig_h_n_src",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_orig_h_n_vals",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_resp_h_n_src",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_resp_h_n_vals",
+                                "type": "string"
+                            },
+                            {
+                                "name": "vlan",
+                                "type": "int"
+                            },
+                            {
+                                "name": "inner_vlan",
+                                "type": "int"
+                            },
+                            {
+                                "name": "community_id",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    "Custom-Corelight_v2_dns_CL": {
+                        "columns": [
+                            {
+                                "name": "TimeGenerated",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "path",
+                                "type": "string"
+                            },
+                            {
+                                "name": "system_name",
+                                "type": "string"
+                            },
+                            {
+                                "name": "write_ts",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "AA",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "RA",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "RD",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "TC",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "TTLs",
+                                "type": "string"
+                            },
+                            {
+                                "name": "Z_value",
+                                "type": "string"
+                            },
+                            {
+                                "name": "answers",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_orig_h",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_orig_p",
+                                "type": "int"
+                            },
+                            {
+                                "name": "id_resp_h",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_resp_p",
+                                "type": "int"
+                            },
+                            {
+                                "name": "proto",
+                                "type": "string"
+                            },
+                            {
+                                "name": "qclass",
+                                "type": "int"
+                            },
+                            {
+                                "name": "qclass_name",
+                                "type": "string"
+                            },
+                            {
+                                "name": "qtype",
+                                "type": "int"
+                            },
+                            {
+                                "name": "qtype_name",
+                                "type": "string"
+                            },
+                            {
+                                "name": "query",
+                                "type": "string"
+                            },
+                            {
+                                "name": "rcode",
+                                "type": "int"
+                            },
+                            {
+                                "name": "rcode_name",
+                                "type": "string"
+                            },
+                            {
+                                "name": "rejected",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "rtt",
+                                "type": "real"
+                            },
+                            {
+                                "name": "trans_id",
+                                "type": "int"
+                            },
+                            {
+                                "name": "uid",
+                                "type": "string"
+                            },
+                            {
+                                "name": "num",
+                                "type": "int"
+                            },
+                            {
+                                "name": "icann_domain",
+                                "type": "string"
+                            },
+                            {
+                                "name": "icann_host_subdomain",
+                                "type": "string"
+                            },
+                            {
+                                "name": "icann_tld",
+                                "type": "string"
+                            },
+                            {
+                                "name": "is_trusted_domain",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "EventVendor",
+                                "type": "string"
+                            },
+                            {
+                                "name": "EventProduct",
+                                "type": "string"
+                            },
+                            {
+                                "name": "EventType",
+                                "type": "string"
+                            },
+                            {
+                                "name": "ts",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "dns_flags_authoritative_answer",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "dns_flags_recursion_available",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "dns_flags_truncated_response",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "ttl",
+                                "type": "int"
+                            },
+                            {
+                                "name": "src",
+                                "type": "string"
+                            },
+                            {
+                                "name": "src_ip",
+                                "type": "string"
+                            },
+                            {
+                                "name": "src_port",
+                                "type": "int"
+                            },
+                            {
+                                "name": "dest",
+                                "type": "string"
+                            },
+                            {
+                                "name": "dest_ip",
+                                "type": "string"
+                            },
+                            {
+                                "name": "dest_port",
+                                "type": "int"
+                            },
+                            {
+                                "name": "record_class",
+                                "type": "string"
+                            },
+                            {
+                                "name": "record_type",
+                                "type": "string"
+                            },
+                            {
+                                "name": "reply_code_id",
+                                "type": "int"
+                            },
+                            {
+                                "name": "dns_flags_rejected",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "duration",
+                                "type": "real"
+                            },
+                            {
+                                "name": "response_time",
+                                "type": "real"
+                            },
+                            {
+                                "name": "transaction_id",
+                                "type": "int"
+                            },
+                            {
+                                "name": "session_id",
+                                "type": "string"
+                            },
+                            {
+                                "name": "answer_count",
+                                "type": "int"
+                            },
+                            {
+                                "name": "query_count",
+                                "type": "int"
+                            },
+                            {
+                                "name": "sensor_name",
+                                "type": "string"
+                            },
+                            {
+                                "name": "is_broadcast",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "is_dest_internal_ip",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "is_src_internal_ip",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "transport",
+                                "type": "string"
+                            },
+                            {
+                                "name": "query_length",
+                                "type": "int"
+                            },
+                            {
+                                "name": "answer_length",
+                                "type": "int"
+                            },
+                            {
+                                "name": "message_type",
+                                "type": "string"
+                            },
+                            {
+                                "name": "reply_code",
+                                "type": "int"
+                            }
+                        ]
+                    },
+                    "Custom-Corelight_v2_dns_red_CL": {
+                        "columns": [
+                            {
+                                "name": "TimeGenerated",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "path",
+                                "type": "string"
+                            },
+                            {
+                                "name": "system_name",
+                                "type": "string"
+                            },
+                            {
+                                "name": "write_ts",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "uid",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_orig_h",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_orig_p",
+                                "type": "int"
+                            },
+                            {
+                                "name": "id_resp_h",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_resp_p",
+                                "type": "int"
+                            },
+                            {
+                                "name": "query",
+                                "type": "string"
+                            },
+                            {
+                                "name": "qtype_name",
+                                "type": "string"
+                            },
+                            {
+                                "name": "rcode",
+                                "type": "int"
+                            },
+                            {
+                                "name": "answers",
+                                "type": "string"
+                            },
+                            {
+                                "name": "num",
+                                "type": "int"
+                            }
+                        ]
+                    },
+                    "Custom-Corelight_v2_ssl_CL": {
+                        "columns": [
+                            {
+                                "name": "TimeGenerated",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "path",
+                                "type": "string"
+                            },
+                            {
+                                "name": "system_name",
+                                "type": "string"
+                            },
+                            {
+                                "name": "write_ts",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "uid",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_orig_h",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_orig_p",
+                                "type": "int"
+                            },
+                            {
+                                "name": "id_resp_h",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_resp_p",
+                                "type": "int"
+                            },
+                            {
+                                "name": "version",
+                                "type": "string"
+                            },
+                            {
+                                "name": "cipher",
+                                "type": "string"
+                            },
+                            {
+                                "name": "curve",
+                                "type": "string"
+                            },
+                            {
+                                "name": "server_name",
+                                "type": "string"
+                            },
+                            {
+                                "name": "resumed",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "last_alert",
+                                "type": "string"
+                            },
+                            {
+                                "name": "next_protocol",
+                                "type": "string"
+                            },
+                            {
+                                "name": "established",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "ssl_history",
+                                "type": "string"
+                            },
+                            {
+                                "name": "cert_chain_fps",
+                                "type": "string"
+                            },
+                            {
+                                "name": "client_cert_chain_fps",
+                                "type": "string"
+                            },
+                            {
+                                "name": "sni_matches_cert",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "validation_status",
+                                "type": "string"
+                            },
+                            {
+                                "name": "ja3",
+                                "type": "string"
+                            },
+                            {
+                                "name": "ja3s",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_vlan",
+                                "type": "int"
+                            },
+                            {
+                                "name": "EventVendor",
+                                "type": "string"
+                            },
+                            {
+                                "name": "EventProduct",
+                                "type": "string"
+                            },
+                            {
+                                "name": "EventType",
+                                "type": "string"
+                            },
+                            {
+                                "name": "ts",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "src",
+                                "type": "string"
+                            },
+                            {
+                                "name": "src_ip",
+                                "type": "string"
+                            },
+                            {
+                                "name": "src_port",
+                                "type": "int"
+                            },
+                            {
+                                "name": "dest",
+                                "type": "string"
+                            },
+                            {
+                                "name": "dest_ip",
+                                "type": "string"
+                            },
+                            {
+                                "name": "dest_port",
+                                "type": "int"
+                            },
+                            {
+                                "name": "ssl_cipher",
+                                "type": "string"
+                            },
+                            {
+                                "name": "ssl_curve",
+                                "type": "string"
+                            },
+                            {
+                                "name": "ssl_subject_common_name",
+                                "type": "string"
+                            },
+                            {
+                                "name": "fingerprint",
+                                "type": "string"
+                            },
+                            {
+                                "name": "is_self_signed",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "action",
+                                "type": "string"
+                            },
+                            {
+                                "name": "sensor_name",
+                                "type": "string"
+                            },
+                            {
+                                "name": "signature",
+                                "type": "string"
+                            },
+                            {
+                                "name": "ssl_version",
+                                "type": "string"
+                            },
+                            {
+                                "name": "is_broadcast",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "is_src_internal_ip",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "is_dest_internal_ip",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "ssl_issuer_common_name",
+                                "type": "string"
+                            },
+                            {
+                                "name": "ssl_issuer_email_domain",
+                                "type": "string"
+                            },
+                            {
+                                "name": "ssl_subject_email_domain",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    "Custom-Corelight_v2_http_CL": {
+                        "columns": [
+                            {
+                                "name": "TimeGenerated",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "path",
+                                "type": "string"
+                            },
+                            {
+                                "name": "system_name",
+                                "type": "string"
+                            },
+                            {
+                                "name": "write_ts",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "host",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_orig_h",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_orig_p",
+                                "type": "int"
+                            },
+                            {
+                                "name": "id_resp_h",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_resp_p",
+                                "type": "int"
+                            },
+                            {
+                                "name": "id_vlan",
+                                "type": "int"
+                            },
+                            {
+                                "name": "method",
+                                "type": "string"
+                            },
+                            {
+                                "name": "orig_fuids",
+                                "type": "string"
+                            },
+                            {
+                                "name": "post_body",
+                                "type": "string"
+                            },
+                            {
+                                "name": "request_body_len",
+                                "type": "int"
+                            },
+                            {
+                                "name": "resp_fuids",
+                                "type": "string"
+                            },
+                            {
+                                "name": "response_body_len",
+                                "type": "int"
+                            },
+                            {
+                                "name": "status_code",
+                                "type": "int"
+                            },
+                            {
+                                "name": "status_msg",
+                                "type": "string"
+                            },
+                            {
+                                "name": "tags",
+                                "type": "string"
+                            },
+                            {
+                                "name": "trans_depth",
+                                "type": "int"
+                            },
+                            {
+                                "name": "uid",
+                                "type": "string"
+                            },
+                            {
+                                "name": "uri",
+                                "type": "string"
+                            },
+                            {
+                                "name": "version",
+                                "type": "string"
+                            },
+                            {
+                                "name": "resp_filenames",
+                                "type": "string"
+                            },
+                            {
+                                "name": "user_agent",
+                                "type": "string"
+                            },
+                            {
+                                "name": "referrer",
+                                "type": "string"
+                            },
+                            {
+                                "name": "origin",
+                                "type": "string"
+                            },
+                            {
+                                "name": "info_code",
+                                "type": "int"
+                            },
+                            {
+                                "name": "info_msg",
+                                "type": "string"
+                            },
+                            {
+                                "name": "username",
+                                "type": "string"
+                            },
+                            {
+                                "name": "passwd",
+                                "type": "string"
+                            },
+                            {
+                                "name": "proxied",
+                                "type": "string"
+                            },
+                            {
+                                "name": "orig_filenames",
+                                "type": "string"
+                            },
+                            {
+                                "name": "orig_mime_types",
+                                "type": "string"
+                            },
+                            {
+                                "name": "resp_mime_types",
+                                "type": "string"
+                            },
+                            {
+                                "name": "push",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "encoding",
+                                "type": "string"
+                            },
+                            {
+                                "name": "stream_id",
+                                "type": "string"
+                            },
+                            {
+                                "name": "EventVendor",
+                                "type": "string"
+                            },
+                            {
+                                "name": "EventProduct",
+                                "type": "string"
+                            },
+                            {
+                                "name": "EventType",
+                                "type": "string"
+                            },
+                            {
+                                "name": "ts",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "dest_host",
+                                "type": "string"
+                            },
+                            {
+                                "name": "src",
+                                "type": "string"
+                            },
+                            {
+                                "name": "src_ip",
+                                "type": "string"
+                            },
+                            {
+                                "name": "src_port",
+                                "type": "int"
+                            },
+                            {
+                                "name": "dest",
+                                "type": "string"
+                            },
+                            {
+                                "name": "dest_ip",
+                                "type": "string"
+                            },
+                            {
+                                "name": "dest_port",
+                                "type": "int"
+                            },
+                            {
+                                "name": "http_method",
+                                "type": "string"
+                            },
+                            {
+                                "name": "bytes_in",
+                                "type": "int"
+                            },
+                            {
+                                "name": "bytes_out",
+                                "type": "int"
+                            },
+                            {
+                                "name": "status",
+                                "type": "string"
+                            },
+                            {
+                                "name": "vendor_action",
+                                "type": "string"
+                            },
+                            {
+                                "name": "uri_path",
+                                "type": "string"
+                            },
+                            {
+                                "name": "object",
+                                "type": "string"
+                            },
+                            {
+                                "name": "http_user_agent",
+                                "type": "string"
+                            },
+                            {
+                                "name": "http_referrer",
+                                "type": "string"
+                            },
+                            {
+                                "name": "http_content_type",
+                                "type": "string"
+                            },
+                            {
+                                "name": "sensor_name",
+                                "type": "string"
+                            },
+                            {
+                                "name": "http_version",
+                                "type": "string"
+                            },
+                            {
+                                "name": "http_username",
+                                "type": "string"
+                            },
+                            {
+                                "name": "http_password",
+                                "type": "string"
+                            },
+                            {
+                                "name": "http_encoding",
+                                "type": "string"
+                            },
+                            {
+                                "name": "http_user_agent_length",
+                                "type": "int"
+                            },
+                            {
+                                "name": "bytes",
+                                "type": "int"
+                            },
+                            {
+                                "name": "is_broadcast",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "is_dest_internal_ip",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "is_src_internal_ip",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "host_header",
+                                "type": "string"
+                            },
+                            {
+                                "name": "referrer_domain_domain",
+                                "type": "string"
+                            },
+                            {
+                                "name": "referrer_domain_ip",
+                                "type": "string"
+                            },
+                            {
+                                "name": "url",
+                                "type": "string"
+                            },
+                            {
+                                "name": "url_domain",
+                                "type": "string"
+                            },
+                            {
+                                "name": "action",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    "Custom-Corelight_v2_http2_CL": {
+                        "columns": [
+                            {
+                                "name": "TimeGenerated",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "path",
+                                "type": "string"
+                            },
+                            {
+                                "name": "system_name",
+                                "type": "string"
+                            },
+                            {
+                                "name": "write_ts",
+                                "type": "datetime"
+                            },
+                            {
+                                "name": "uid",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_orig_h",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_orig_p",
+                                "type": "int"
+                            },
+                            {
+                                "name": "id_resp_h",
+                                "type": "string"
+                            },
+                            {
+                                "name": "id_resp_p",
+                                "type": "int"
+                            },
+                            {
+                                "name": "stream_id",
+                                "type": "int"
+                            },
+                            {
+                                "name": "method",
+                                "type": "string"
+                            },
+                            {
+                                "name": "host",
+                                "type": "string"
+                            },
+                            {
+                                "name": "uri",
+                                "type": "string"
+                            },
+                            {
+                                "name": "referrer",
+                                "type": "string"
+                            },
+                            {
+                                "name": "version",
+                                "type": "string"
+                            },
+                            {
+                                "name": "user_agent",
+                                "type": "string"
+                            },
+                            {
+                                "name": "request_body_len",
+                                "type": "int"
+                            },
+                            {
+                                "name": "response_body_len",
+                                "type": "int"
+                            },
+                            {
+                                "name": "status_code",
+                                "type": "int"
+                            },
+                            {
+                                "name": "status_msg",
+                                "type": "string"
+                            },
+                            {
+                                "name": "info_code",
+                                "type": "int"
+                            },
+                            {
+                                "name": "info_msg",
+                                "type": "string"
+                            },
+                            {
+                                "name": "encoding",
+                                "type": "string"
+                            },
+                            {
+                                "name": "username",
+                                "type": "string"
+                            },
+                            {
+                                "name": "password",
+                                "type": "string"
+                            },
+                            {
+                                "name": "proxied",
+                                "type": "string"
+                            },
+                            {
+                                "name": "push",
+                                "type": "boolean"
+                            }
+                        ]
+                    }
+                },
+                "destinations": {
+                    "logAnalytics": [
+                        {
+                            "workspaceResourceId": "[parameters('workspaces_sentineltesting_rg_externalid')]",
+                            "name": "sentineltesting_rg"
+                        }
+                    ]
+                },
+                "dataFlows": [
+                    {
+                        "streams": [
+                            "Custom-Corelight_CL"
+                        ],
+                        "destinations": [
+                            "sentineltesting_rg"
+                        ],
+                        "transformKql": "source | extend Duration = toint(Duration)"
+                    },
+                    {
+                        "streams": [
+                            "Custom-Corelight_v2_conn_red_CL"
+                        ],
+                        "destinations": [
+                            "sentineltesting_rg"
+                        ],
+                        "transformKql": "source"
+                    },
+                    {
+                        "streams": [
+                            "Custom-Corelight_v2_conn_CL"
+                        ],
+                        "destinations": [
+                            "sentineltesting_rg"
+                        ],
+                        "transformKql": "source | extend Duration = toint(Duration)"
+                    },
+                    {
+                        "streams": [
+                            "Custom-Corelight_v2_conn_long_CL"
+                        ],
+                        "destinations": [
+                            "sentineltesting_rg"
+                        ],
+                        "transformKql": "source | extend Duration = toint(Duration)"
+                    },
+                    {
+                        "streams": [
+                            "Custom-Corelight_v2_dns_CL"
+                        ],
+                        "destinations": [
+                            "sentineltesting_rg"
+                        ],
+                        "transformKql": "source"
+                    },
+                    {
+                        "streams": [
+                            "Custom-Corelight_v2_dns_red_CL"
+                        ],
+                        "destinations": [
+                            "sentineltesting_rg"
+                        ],
+                        "transformKql": "source"
+                    },
+                    {
+                        "streams": [
+                            "Custom-Corelight_v2_ssl_CL"
+                        ],
+                        "destinations": [
+                            "sentineltesting_rg"
+                        ],
+                        "transformKql": "source"
+                    },
+                    {
+                        "streams": [
+                            "Custom-Corelight_v2_ssl_red_CL"
+                        ],
+                        "destinations": [
+                            "sentineltesting_rg"
+                        ],
+                        "transformKql": "source"
+                    },
+                    {
+                        "streams": [
+                            "Custom-Corelight_v2_http_CL"
+                        ],
+                        "destinations": [
+                            "sentineltesting_rg"
+                        ],
+                        "transformKql": "source"
+                    },
+                    {
+                        "streams": [
+                            "Custom-Corelight_v2_http2_CL"
+                        ],
+                        "destinations": [
+                            "sentineltesting_rg"
+                        ],
+                        "transformKql": "source"
+                    }
+                ]
+            }
+        }
+    ]
+}
