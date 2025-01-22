@@ -1696,7 +1696,7 @@
                 "destinations": {
                     "logAnalytics": [
                         {
-                            "workspaceResourceId": "[parameters('workspaces_sentineltesting_rg_externalid')]",
+                            "workspaceResourceId": "[parameters('EndUsersPreprod-Sentinel-LogAnalyticsWorkspace_externalid')]",
                             "name": "SentinelTesting_RG"
                         }
                     ]
