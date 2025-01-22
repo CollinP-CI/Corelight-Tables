@@ -11,7 +11,7 @@
             "type": "string"
         },
         "EndUsersPreprod-Sentinel-LogAnalyticsWorkspace": {
-            "defaultValue": "/subscriptions/6a8cbfca-fb3f-42a3-bff4-2d7cfa2c422f/resourcegroups/SentinelTesting_rg/providers/microsoft.operationalinsights/workspaces/enduserspreprod-sentinel-loganalyticsworkspace",
+            "defaultValue": "/subscriptions/6a8cbfca-fb3f-42a3-bff4-2d7cfa2c422f/resourcegroups/SentinelTesting_RG/providers/microsoft.operationalinsights/workspaces/enduserspreprod-sentinel-loganalyticsworkspace",
             "type": "string"
         }
     },
